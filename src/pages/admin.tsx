@@ -40,30 +40,26 @@ const Admin = ():JSX.Element => {
 
   const sendApiLinkToAgent = (event: any): void => {
     event.preventDefault()
-    console.log("LOKOOO SQUAD");
-    console.log(event.target.sony.type === 'checkbox' ? event.target.sony.checked : event.target.sony.value);
-    console.log("LOKOOO SQUAD");
-    
+ 
     setLoading(true)
     axios.get(`http://localhost:8080/scrap`, {
-      params: {
-        apple: event.target.apple.type === 'checkbox' ? event.target.apple.checked : event.target.apple.value,
-        asus: event.target.asus.type === 'checkbox' ? event.target.asus.checked : event.target.asus.value,
-        htc: event.target.htc.type === 'checkbox' ? event.target.htc.checked : event.target.htc.value,
-        lg: event.target.lg.type === 'checkbox' ? event.target.lg.checked : event.target.lg.value,
-        motorola: event.target.motorola.type === 'checkbox' ? event.target.motorola.checked : event.target.motorola.value,
-        nokia: event.target.nokia.type === 'checkbox' ? event.target.nokia.checked : event.target.nokia.value,
-        oneplus: event.target.oneplus.type === 'checkbox' ? event.target.oneplus.checked : event.target.oneplus.value,
-        samsung: event.target.samsung.type === 'checkbox' ? event.target.samsung.checked : event.target.samsung.value,
-        sony: event.target.sony.type === 'checkbox' ? event.target.sony.checked : event.target.sony.value,
-        url: event.target.link.value,
-        zte: event.target.zte.type === 'checkbox' ? event.target.zte.checked : event.target.zte.value,
-      }
+      // params: {
+      //   apple: event.target.apple.type === 'checkbox' ? event.target.apple.checked : event.target.apple.value,
+      //   asus: event.target.asus.type === 'checkbox' ? event.target.asus.checked : event.target.asus.value,
+      //   htc: event.target.htc.type === 'checkbox' ? event.target.htc.checked : event.target.htc.value,
+      //   lg: event.target.lg.type === 'checkbox' ? event.target.lg.checked : event.target.lg.value,
+      //   motorola: event.target.motorola.type === 'checkbox' ? event.target.motorola.checked : event.target.motorola.value,
+      //   nokia: event.target.nokia.type === 'checkbox' ? event.target.nokia.checked : event.target.nokia.value,
+      //   oneplus: event.target.oneplus.type === 'checkbox' ? event.target.oneplus.checked : event.target.oneplus.value,
+      //   samsung: event.target.samsung.type === 'checkbox' ? event.target.samsung.checked : event.target.samsung.value,
+      //   sony: event.target.sony.type === 'checkbox' ? event.target.sony.checked : event.target.sony.value,
+      //   url: event.target.link.value,
+      //   zte: event.target.zte.type === 'checkbox' ? event.target.zte.checked : event.target.zte.value,
+      // }
     }).then(res => {
       console.log(res.data)
       if(!res.data.dataStorage.statusMessage.wasSuccesfull) {
-        setStatus(false)
-        setMessage('Ungültier Link, der Agent konnte keine Fälle aus diesem Link bauen.')
+        setMessage('Die Datenbank wird jetzt mit Fällen befüllt')
       }
       else {
         setStatus(true)
@@ -106,14 +102,8 @@ const Admin = ():JSX.Element => {
         </TabPanel>
         <TabPanel>
           <div>
-          <h1>Link zum Crawln eingeben</h1>
+          <h1>Starte das Crwaling</h1>
             <form onSubmit={sendApiLinkToAgent}>
-              <label>Link</label>
-              <br />
-              <input type="text" name="link" />
-              <br />
-              <br />
-              <br />
               <h1>Wähle Sie Marken aus nach den nicht gecrawlt werden soll</h1>
               <input type="checkbox" name="sony" value="sony" />Sony
               <input type="checkbox" name="zte" value="zte" />ZTE
