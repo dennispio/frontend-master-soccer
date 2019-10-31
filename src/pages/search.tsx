@@ -20,46 +20,59 @@ const Search = ():JSX.Element => {
   //   console.log(apiresult +"RICHTIG ÜBERGEBEN")
   // }
 
-    const [results, setResults] = React.useState([]);
     const [resultPlayers, setResultPlayers] = React.useState([]);
 
-  //   const handleIndSearch = (e : any) => {
-  //     e.preventDefault();
-  //     setLoading(true);
-
-  //     const url = `http://localhost:8080/retrievalIndPlayer`+
-  //     '?spielername=undefined'+
-  //     '&manufacture='+e.target.manufacture.value+'&manufacturecheck='+e.target.manufacturecheck.value+
-  //     '&price='+e.target.price.value+'&pricecheck='+e.target.pricecheck.value+
-  //     '&weight='+e.target.weight.value+'&weightcheck='+e.target.weightcheck.value+
-  //     '&size='+e.target.size.value+'&sizecheck='+e.target.sizecheck.value+
-  //     '&displaytype='+e.target.displaytype.value+'&displaytypecheck='+e.target.displaytypecheck.value+
-  //     '&cpu='+e.target.cpu.value+'&cpucheck='+e.target.cpucheck.value+
-  //     '&ram='+e.target.ram.value +'&ramcheck='+e.target.ramcheck.value+
-  //     '&akkukapa='+e.target.akkukapa.value+'&akkukapacheck='+e.target.akkukapacheck.value+
-  //     '&kameramegapixel='+e.target.kameramegapixel.value+'&kameramegapixelcheck='+e.target.kameramegapixelcheck.value+
-  //     '&frontkamera='+e.target.frontkamera.value+'&frontkameracheck='+e.target.frontkameracheck.value+
-  //     '&memory='+e.target.memory.value+'&memorycheck='+e.target.memorycheck.value+
-  //     '&memoryslot='+e.target.memoryslot.value+'&memoryslotcheck='+e.target.memoryslotcheck.value+
-  //     '&nfc='+e.target.nfc.value+'&nfccheck='+e.target.nfccheck.value+
-  //     '&thickness='+e.target.thickness.value+'&thicknesscheck='+e.target.thicknesscheck.value+
-  //     '&anzahl='+e.target.anzahl.value;
-
-  //       setTimeout(() => {
-  //         axios.get(url)
-  //         .then(res => {
-  //           setTimeout(() => {
-  //             axios.get(url).then( resp => {
-  //               setResultPlayers(resp.data.dataStorage.retrievalphoneList)
-  //             })
-  //           }, 4000)
-  //           setTimeout(() =>{
-  //             setLoading(false)  
-  //           }, 5000) 
-  //         })})
-  //     console.log(url);
-  //     console.log(resultPlayers);
-  // }
+    const handleIndSearch = (e : any) => {
+        e.preventDefault();
+        setLoading(true);
+    
+        const url = `http://localhost:8080/retrievalPlayer`+
+        '?spielername=undefined'+
+        '&spielerposition='+e.target.Spielerposition.value+
+        '&overallKreierteGrosschancen='+e.target.OverallKreierteGrosschancen.value+
+        '&overallPassquote='+e.target.OverallPassquote.value+
+        '&overallTorschussVorlagen='+e.target.OverallTorschussvorlagen.value+
+        '&overallTorschuesse='+e.target.OverallTorschuesse.value+
+        '&overallSchussgenauigkeit='+e.target.OverallSchussgenauigkeit.value+
+        '&overallZweikampfquote='+e.target.OverallZweikampfquote.value+
+        '&overallAbgefangeneBaelle='+e.target.OverallAbgefangeneBaelle.value+
+        '&overallAssists='+e.target.OverallAssists.value+
+        '&overallBallEroberungen='+e.target.OverallBallEroberungen.value+
+        '&overallBewertung='+e.target.Bewertung.value+
+        '&overallGoals='+e.target.OverallGoals.value+
+        '&overallFouls='+e.target.OverallFouls.value+
+        '&overallGeklaerteBaelle='+e.target.OverallGeklaerteBaelle.value+
+        '&overallxA='+e.target.OverallxA.value+
+        '&overallxA90='+e.target.OverallxA90.value+
+        '&overallDribblings='+e.target.OverallDribblings.value+
+        '&overallxG='+e.target.OverallxG.value+
+        '&overallxG90='+e.target.OverallxG90.value+
+        '&overallSh90='+e.target.OverallSh90.value+
+        '&overallEinsatzquote='+e.target.OverallEinsatzquote.value+
+        '&overallLuftzweikampf='+e.target.OverallLuftzweikampf.value+
+        '&overallBallverlust='+e.target.OverallBallverlust.value+
+        '&alter='+e.target.Alter.value+
+        '&overallBlockSchuss='+e.target.OverallBlockSchuss.value+
+        '&overallKP90='+e.target.OverallKP90.value+
+        '&overallTacklingquote='+e.target.OverallTacklingquote.value+
+        '&transfermarktwert='+e.target.transfermarktwert.value+
+        '&anzahl='+e.target.anzahl.value;
+    
+        const urlretrieval = `http://localhost:8080/mas`
+    
+          axios.get(url).then(res => {
+              console.log(res.data.dataStorage.retrievalsoccerplayerList)
+              setTimeout(() => {
+                axios.get(urlretrieval).then(resCases => {
+                  console.log(resCases.data)
+                  setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
+                  setLoading(false)
+                })
+          }, 5000)
+        });
+        console.log(url);
+        console.log("bin noch in der anfrage")
+      }
 
 
   const handlePlayerSearch = (e : any) => {
@@ -68,18 +81,21 @@ const Search = ():JSX.Element => {
 
     const url = `http://localhost:8080/retrievalPlayer`+
     '?spielername='+e.target.Spielername.value+
-    '&anzahl='+e.target.anzahl.value;
+    '&anzahl='+e.target.anzahl.value+
+    '&spielertyp='+e.target.spielertyp.value;
 
-    setTimeout(() => {
+    const urlretrieval = `http://localhost:8080/mas`
+
       axios.get(url).then(res => {
+          console.log(res.data.dataStorage.retrievalsoccerplayerList)
           setTimeout(() => {
-            axios.get(url).then(resCases => {
+            axios.get(urlretrieval).then(resCases => {
               console.log(resCases.data)
               setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
               setLoading(false)
             })
-          }, 5000)
-    })}, 2000)
+      }, 5000)
+    });
     console.log(url);
     console.log("bin noch in der anfrage")
   }
@@ -94,16 +110,16 @@ const Search = ():JSX.Element => {
         </TabList>
         <TabPanel>
           <div className="admin-heading-container">
-            <FormIndPlayer onChange = {handlePlayerSearch}/> 
+            <FormIndPlayer onChange = {handleIndSearch}/> 
             {isLoading ? <Loading />: 
       <ResultsPlayer resultPlayers={resultPlayers} />}
           </div>
         </TabPanel>
         <TabPanel>
+          <div className="flex">
           <div>
             <h1>Spieleraustausch</h1>
             <form onSubmit={handlePlayerSearch}>
-            <div>
               <div style={{marginTop: "10px"}}>Für welchen Spieler suchst du eine alternative?</div>
               <label>
               <select name="Spielername">
@@ -130,7 +146,21 @@ const Search = ():JSX.Element => {
                 <option value="Mario Götze">Mario Götze</option>
               </select>
           </label>
-        </div>
+          <div>
+          <div>Welche Art Spielertyp suchst du als alternative?</div>
+              <label className="padding">
+                <input type="radio" value="identisch" name="spielertyp" defaultChecked={true}/>
+                Identisch
+              </label>
+              <label className="padding">
+                <input type="radio" value="defensiv" name="spielertyp"/>
+                Defensiv
+              </label>
+              <label className="padding">
+                <input type="radio" value="offensiv" name="spielertyp"/>
+                Offensiv
+              </label>  
+              </div>
             <div>
               <div style={{marginTop: "10px"}}> 
                 Anzahl der Spieler die zurück gegeben werden sollen.
@@ -139,9 +169,12 @@ const Search = ():JSX.Element => {
             </div>
               <input type="submit" value="Submit" />
             </form>
-          </div>
-          {isLoading ? <Loading />: 
-            <ResultsPlayer resultPlayers={resultPlayers} />}        
+            </div>
+            <div>
+              {isLoading ? <Loading />: 
+                <ResultsPlayer resultPlayers={resultPlayers} />}    
+            </div>    
+            </div>
             </TabPanel>
       </Tabs>
     </div>

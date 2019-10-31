@@ -25,7 +25,7 @@
 
 .flex {
   display: flex;
-  flex-direction: column; }
+  flex-wrap: wrap; }
 
 .bewertung {
   display: flex;
@@ -34,19 +34,18 @@
     padding-right: 20px; }
 
 th {
-  background: #3498db;
-  color: white;
-  font-weight: bold; }
+  background: #224637;
+  color: white; }
 
-td {
-  background: grey;
-  color: black;
+.soccertable {
+  border: 1px solid black; }
+
+tr {
   text-align: center; }
 
-.mitte {
-  margin: 0 auto;
-  margin-top: 20px;
-  border: 1px; }
+td {
+  border: 1px solid black;
+  text-align: center; }
 
 body {
   margin: 0;
@@ -62,9 +61,6 @@ nav {
     color: white;
     text-decoration: none;
     font-size: 20px; }
-
-.green {
-  color: green; }
 
 .red {
   color: red; }
@@ -212,3 +208,14 @@ label {
   font-size: 14px;
   color: darkgray;
   cursor: pointer; }
+
+.padding {
+  margin: 7%; }
+
+.green {
+  background: green;
+  color: black; }
+
+.red {
+  background: red;
+  color: black; }

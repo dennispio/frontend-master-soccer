@@ -19,8 +19,6 @@ const FormIndPlayer = ({onChange}: any):JSX.Element => {
             <div style={{marginTop: "10px"}}>Welche Spielerposition suchst du?:</div>
         <label>
             <select name="Spielerposition">
-              <option value="keineangabe">Default</option>
-              <option value="TW">Torwart</option>
               <option value="IV">Innenverteidiger</option>
               <option value="LV">Linker Verteidiger</option>
               <option value="RV">Rechter Verteidiger</option>
@@ -34,476 +32,205 @@ const FormIndPlayer = ({onChange}: any):JSX.Element => {
         </label>
         </div>
          <div>
-            <div style={{marginTop: "10px"}}> Großchancen?</div>
+            <div style={{marginTop: "10px"}}> Großchancen (0-3)</div>
           <label>
             <input type="number" defaultValue='0' min='0' max='3' step='0.1' name="OverallKreierteGrosschancen" />
           </label>
           </div>
-          <label>
-            <input type="radio" value="0" name="pricecheck" defaultChecked={true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="pricecheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="pricecheck"/>
-            Sehr Wichtig
-          </label>  
           <div>
-            <div style={{marginTop: "10px"}}>Passquote:</div>
+            <div style={{marginTop: "10px"}}>Passquote (0-100%)</div>
           <label>
-          <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="Passquote" />
+          <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallPassquote" />
           </label>
           </div>
-          <label>
-            <input type="radio" value="0" name="sizecheck" defaultChecked={true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="sizecheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="sizecheck"/>
-            Sehr Wichtig
-          </label>  
 
       <div>
-            <div style={{marginTop: "10px"}}>Torschussvorlagen:</div>
+            <div style={{marginTop: "10px"}}>Torschussvorlagen (0-8)</div>
         <label>
-        <input type="number" defaultValue='0' min='0' max='8' step='0.1' name="Torschussvorlagen" />
+        <input type="number" defaultValue='0' min='0' max='8' step='0.1' name="OverallTorschussvorlagen" />
         </label>
       </div>
-      <label>
-            <input type="radio" value="0" name="weightcheck" defaultChecked={true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="weightcheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="weightcheck"/>
-            Sehr Wichtig
-          </label> 
 
-            <div style={{marginTop: "10px"}}>OverallSchussgenauigkeit:</div>
+
+      <div>
+            <div style={{marginTop: "10px"}}>Torschüesse (0-3)</div>
+        <label>
+        <input type="number" defaultValue='0' min='0' max='3' step='0.1' name="OverallTorschuesse" />
+        </label>
+      </div>
+
+
+
+            <div style={{marginTop: "10px"}}>Schussgenauigkeit (0-100%)</div>
         <label>
         <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallSchussgenauigkeit" />
         </label>
-      <label>
-            <input type="radio" value="0" name="akkukapacheck" defaultChecked={true} />
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="akkukapacheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="akkukapacheck"/>
-            Sehr Wichtig
-          </label>  
 
       <div>
-            <div style={{marginTop: "10px"}}>OverallZweikampfquote:</div>
+            <div style={{marginTop: "10px"}}>Zweikampfquote (0-100%)</div>
         <label>
         <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallZweikampfquote" />
         </label>
       </div>
-      <label>
-            <input type="radio" value="0" name="kameramegapixelcheck" defaultChecked={true} />
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="kameramegapixelcheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="kameramegapixelcheck"/>
-            Sehr Wichtig
-          </label>  
 
       <div>
-            <div style={{marginTop: "10px"}}>OverallAbgefangeneBaelle:</div>
+            <div style={{marginTop: "10px"}}>AbgefangeneBaelle (0-5)</div>
         <label>
         <input type="number" defaultValue='0' min='0' max='5' step='0.1' name="OverallAbgefangeneBaelle" />
         </label>
       </div>
-      <label>
-            <input type="radio" value="0" name="frontkameracheck" defaultChecked={true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="frontkameracheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="frontkameracheck"/>
-            Sehr Wichtig
-          </label>  
-
 
       <div>
-            <div style={{marginTop: "10px"}}>OverallAssists:</div>
+            <div style={{marginTop: "10px"}}>Assists (0-50)</div>
         <label>
-        <input type="number" defaultValue='0' min='0' max='50' step='0.1' name="OverallAssists" />       
+        <input type="number" defaultValue='0' min='0' max='50' name="OverallAssists" />       
         </label>
        </div>
-       <label>
-            <input type="radio" value="0" name="memorycheck" defaultChecked={true} />
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="memorycheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="memorycheck"/>
-            Sehr Wichtig
-          </label>  
+    
       <div>
-            <div style={{marginTop: "10px"}}>OverallBallEroberungen:</div>
+            <div style={{marginTop: "10px"}}>Balleroberungen (0-5)</div>
         <label>
           <input type="number" defaultValue='0' min='0' max='5' step='0.1' name="OverallBallEroberungen" />       
         </label>
        </div>
-       <label>
-            <input type="radio" value="0" name="memoryslotcheck" defaultChecked={true} />
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="memoryslotcheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="memoryslotcheck"/>
-            Sehr Wichtig
-          </label>  
+
+       <div>
+            <div style={{marginTop: "10px"}}>Bewertung (0-6)</div>
+        <label>
+          <input type="number" defaultValue='0' min='0' max='6' step='0.1' name="Bewertung" />       
+        </label>
+       </div>
 
         <div>
-        <div style={{marginTop: "10px"}}>OverallGoals:</div>
+        <div style={{marginTop: "10px"}}>Tore (0-40)</div>
         <label>
-        <input type="number" defaultValue='0' min='0' max='40' step='0.1' name="OverallGoals" />
+        <input type="number" defaultValue='0' min='0' max='40' name="OverallGoals" />
 
         </label>
         </div>
-        <label>
-            <input type="radio" value="0" name="nfccheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="nfccheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="nfccheck"/>
-            Sehr Wichtig
-          </label>  
 
       <div>
-            <div style={{marginTop: "10px"}}>OverallFouls:</div>
+            <div style={{marginTop: "10px"}}>Fouls (0-4)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='4' step='0.1' name="OverallFouls" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
           <div>
-            <div style={{marginTop: "10px"}}>OverallGeklaerteBaelle:</div>
+            <div style={{marginTop: "10px"}}>Geklaerte Baelle (0-10)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='10' step='0.1' name="OverallGeklaerteBaelle" />
         </div>
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
-
           <div>
-            <div style={{marginTop: "10px"}}>OverallxA:</div>
+            <div style={{marginTop: "10px"}}>xA (0-3)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='3' step='0.1' name="OverallxA" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
-
           <div>
-            <div style={{marginTop: "10px"}}>OverallxA90:</div>
+            <div style={{marginTop: "10px"}}>OverallxA90 (0-3)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='3' step='0.1' name="OverallxA90" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallDribblings:</div>
+            <div style={{marginTop: "10px"}}>Dribblings (0-100%)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallDribblings" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
-
           <div>
-            <div style={{marginTop: "10px"}}>OverallxG:</div>
+            <div style={{marginTop: "10px"}}>xG (0-8)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='8' step='0.1' name="OverallxG" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
-
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallxG90:</div>
+            <div style={{marginTop: "10px"}}>xG90 (0-5)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='5' step='0.1' name="OverallxG90" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
-
-
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallSh90:</div>
+            <div style={{marginTop: "10px"}}>Sh90 (0-10)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='10' step='0.1' name="OverallSh90" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
           <div>
-            <div style={{marginTop: "10px"}}>OverallEinsatzquote:</div>
+            <div style={{marginTop: "10px"}}>Einsatzquote (0-100)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallEinsatzquote" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
 
+          <div>
+            <div style={{marginTop: "10px"}}>Luftzweikampf (0-100)</div>
+        <div>        
+          <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallLuftzweikampf" />
+        </div>
 
-
+      </div>
 
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallBallverlust:</div>
+            <div style={{marginTop: "10px"}}>Ballverlust (0-10)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='10' step='0.1' name="OverallBallverlust" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
 
           <div>
-            <div style={{marginTop: "10px"}}>Alter:</div>
+            <div style={{marginTop: "10px"}}>Alter (16-40)</div>
         <div>        
-          <input type="number" defaultValue='0' min='16' max='40' step='0.1' name="Alter" />
+          <input type="number" defaultValue='0' min='16' max='40' step='1' name="Alter" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallBlockSchuss:</div>
+            <div style={{marginTop: "10px"}}>BlockSchuss (0-2)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='2' step='0.1' name="OverallBlockSchuss" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
 
           <div>
-            <div style={{marginTop: "10px"}}>OverallKP90:</div>
+            <div style={{marginTop: "10px"}}>KP90 (0-10)</div>
         <div>        
           <input type="number" defaultValue='0' min='0' max='10' step='0.1' name="OverallKP90" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
-
-
           <div>
-            <div style={{marginTop: "10px"}}>OverallTacklingquote:</div>
+            <div style={{marginTop: "10px"}}>Tacklingquote (0-100)</div>
         <div>        
-          <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="AOverallTacklingquotelter" />
+          <input type="number" defaultValue='0' min='0' max='100' step='0.1' name="OverallTacklingquote" />
         </div>
 
       </div>
-      <label>
-            <input type="radio" value="0" name="thicknesscheck" defaultChecked = {true}/>
-            Egal
-          </label>
-          <label>
-            <input type="radio" value="3" name="thicknesscheck"/>
-            Wichtig
-          </label>
-          <label>
-            <input type="radio" value="6" name="thicknesscheck"/>
-            Sehr Wichtig
-          </label>  
 
+      <div>
+            <div style={{marginTop: "10px"}}>Markwert (0.1 - 250 Mio.)</div>
+        <div>        
+          <input type="number" defaultValue='0' min='0.1' max='250' step='0.1' name="transfermarktwert" />
+        </div>
+
+      </div>
+  
 
       <div>
       <div style={{marginTop: "10px"}}> 
