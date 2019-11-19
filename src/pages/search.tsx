@@ -12,13 +12,7 @@ import ResultsPlayer from './resultPlayer';
 
 const Search = ():JSX.Element => {
 
-  const [isLoading, setLoading] = React.useState(true)
-  
-
-  // const apicrawler = ({newApiState} : any) : void =>{
-  //   setApiresult(newApiState)
-  //   console.log(apiresult +"RICHTIG ÜBERGEBEN")
-  // }
+    const [isLoading, setLoading] = React.useState(true)
 
     const [resultPlayers, setResultPlayers] = React.useState([]);
 
@@ -60,20 +54,18 @@ const Search = ():JSX.Element => {
     
         const urlretrieval = `http://localhost:8080/mas`
     
-          axios.get(url).then(res => {
-              console.log(res.data.dataStorage.retrievalsoccerplayerList)
-              setTimeout(() => {
-                axios.get(urlretrieval).then(resCases => {
-                  console.log(resCases.data)
-                  setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
-                  setLoading(false)
-                })
+        axios.get(url).then(res => {
+            console.log(res.data.dataStorage.retrievalsoccerplayerList)
+            setTimeout(() => {
+              axios.get(urlretrieval).then(resCases => {
+                console.log(resCases.data)
+                setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
+                setLoading(false)
+              })
           }, 5000)
         });
         console.log(url);
-        console.log("bin noch in der anfrage")
       }
-
 
   const handlePlayerSearch = (e : any) => {
     e.preventDefault();
@@ -85,19 +77,17 @@ const Search = ():JSX.Element => {
     '&spielertyp='+e.target.spielertyp.value;
 
     const urlretrieval = `http://localhost:8080/mas`
-
       axios.get(url).then(res => {
-          console.log(res.data.dataStorage.retrievalsoccerplayerList)
-          setTimeout(() => {
-            axios.get(urlretrieval).then(resCases => {
-              console.log(resCases.data)
-              setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
-              setLoading(false)
-            })
+        console.log(res.data.dataStorage.retrievalsoccerplayerList)
+        setTimeout(() => {
+          axios.get(urlretrieval).then(resCases => {
+            console.log(resCases.data)
+            setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
+            setLoading(false)
+          })
       }, 5000)
     });
     console.log(url);
-    console.log("bin noch in der anfrage")
   }
 
   return(

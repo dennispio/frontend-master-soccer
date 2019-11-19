@@ -51,12 +51,7 @@ const Admin = ():JSX.Element => {
     event.preventDefault()
  
     setLoading(true)
-    axios.get(`http://localhost:8080/scrap`, {
-      params: {
-        bayern: event.target.bayern.type === 'checkbox' ? event.target.bayern.checked : event.target.bayern.value,
-        dortmund: event.target.dortmund.type === 'checkbox' ? event.target.dortmund.checked : event.target.dortmund.value,
-      }
-    }).then(res => {
+    axios.get(`http://localhost:8080/scrap`).then(res => {
       console.log(res.data)
       if(!res.data.dataStorage.statusMessage.wasSuccesfull) {
         setMessage('Die Datenbank wird jetzt mit Fällen befüllt. Habe bitte eine halbe minute Geduld')
@@ -93,12 +88,6 @@ const Admin = ():JSX.Element => {
           <div>
           <h1>Starte das Crwaling</h1>
             <form onSubmit={sendApiLinkToAgent}>
-              <h1>Wähle Sie Marken aus nach den nicht gecrawlt werden soll</h1>
-              <input type="checkbox" name="dortmund" value="dortmund" />Borussia Dortmund
-              <input type="checkbox" name="bayern" value="bayern" />Bayern München
-              <br />
-              <br />
-              <br />
               <button type="submit">Link an Agenten senden</button>
             </form>
           </div>
@@ -108,8 +97,6 @@ const Admin = ():JSX.Element => {
             <div>
               <h2 className="green">Die Datenbank wurde erfolgreich befüllt</h2>
               <button onClick={caseInfosData}>Listen aktualisieren</button>
-              {console.log(caseStatus.caseAdded)}
-              {console.log(caseStatus.caseSize)}
             </div>}
             {<h2 className="">Cases Added: {caseStatus.caseAdded}<br /> Cases in casebase: {caseStatus.caseSize}</h2>}
           </div>
