@@ -118,7 +118,6 @@ const Search = ():JSX.Element => {
                 <option value="Thorgan Hazard">Thorgan Hazard</option>
                 <option value="Nico Schulz">Nico Schulz</option>
                 <option value="Achraf Hakimi">Achraf Hakimi</option>
-                <option value="Roman Bürki">Roman Bürki</option>
                 <option value="Marwin Hitz">Marwin Hitz</option>
                 <option value="Manuel Akanji">Manuel Akanji</option>
                 <option value="Mats Hummels">Mats Hummels</option>
@@ -126,14 +125,13 @@ const Search = ():JSX.Element => {
                 <option value="Marcel Schmelzer">Marcel Schmelzer</option>
                 <option value="Dan-Axel Zagadou">Dan-Axel Zagadou</option>
                 <option value="Julian Brandt">Julian Brandt</option>
-                <option value="Jacob Bruun Larsen">Jacob Bruun Larsen</option>
                 <option value="Mahmoud Dahoud">Mahmoud Dahoud</option>
                 <option value="Thomas Delaney">Thomas Delaney</option>
                 <option value="Raphael Guerreiro">Raphael Guerreiro</option>
                 <option value="Jadon Sancho">Jadon Sancho</option>
                 <option value="Julian Weigl">Julian Weigl</option>
-                <option value="Paco Alcácer">Paco Alcácer</option>
                 <option value="Mario Götze">Mario Götze</option>
+                <option value="Erling Haaland">Erling Haaland</option>
               </select>
           </label>
           <div>
