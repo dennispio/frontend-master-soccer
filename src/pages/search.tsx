@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Tab,TabList, TabPanel, Tabs } from 'react-tabs';
 import Loading from './../components/loading/Loading';
 import FormIndPlayer from './formIndPlayer';
-import Result from './result';
 import ResultsPlayer from './resultPlayer';
 
 
@@ -13,13 +12,12 @@ import ResultsPlayer from './resultPlayer';
 const Search = ():JSX.Element => {
 
     const [isLoading, setLoading] = React.useState(true)
-
     const [resultPlayers, setResultPlayers] = React.useState([]);
+    const [resultPlayersInd, setResultPlayersInd] = React.useState([]);
 
     const handleIndSearch = (e : any) => {
         e.preventDefault();
-        setLoading(true);
-    
+        setLoading(true); 
         const url = `http://localhost:8080/retrievalPlayer`+
         '?spielername=undefined'+
         '&spielerposition='+e.target.Spielerposition.value+
@@ -55,11 +53,10 @@ const Search = ():JSX.Element => {
         const urlretrieval = `http://localhost:8080/mas`
     
         axios.get(url).then(res => {
-            console.log(res.data.dataStorage.retrievalsoccerplayerList)
             setTimeout(() => {
               axios.get(urlretrieval).then(resCases => {
                 console.log(resCases.data)
-                setResultPlayers(resCases.data.dataStorage.retrievalsoccerplayerList)
+                setResultPlayersInd(resCases.data.dataStorage.retrievalsoccerplayerList)
                 setLoading(false)
               })
           }, 5000)
@@ -99,10 +96,10 @@ const Search = ():JSX.Element => {
           <Tab>Spieleraustausch</Tab>
         </TabList>
         <TabPanel>
-          <div className="admin-heading-container">
+          <div>
             <FormIndPlayer onChange = {handleIndSearch}/> 
             {isLoading ? <Loading />: 
-      <ResultsPlayer resultPlayers={resultPlayers} />}
+      <ResultsPlayer resultPlayers={resultPlayersInd} />}
           </div>
         </TabPanel>
         <TabPanel>
@@ -134,7 +131,7 @@ const Search = ():JSX.Element => {
                 <option value="Erling Haaland">Erling Haaland</option>
               </select>
           </label>
-          <div>
+          <div className="pt">
           <div>Welche Art Spielertyp suchst du als alternative?</div>
               <label className="padding">
                 <input type="radio" value="identisch" name="spielertyp" defaultChecked={true}/>
@@ -149,7 +146,7 @@ const Search = ():JSX.Element => {
                 Offensiv
               </label>  
               </div>
-            <div>
+            <div className="pt">
               <div style={{marginTop: "10px"}}> 
                 Anzahl der Spieler die zurück gegeben werden sollen.
               </div>  
@@ -157,11 +154,11 @@ const Search = ():JSX.Element => {
             </div>
               <input type="submit" value="Submit" />
             </form>
-            </div>
             <div>
               {isLoading ? <Loading />: 
                 <ResultsPlayer resultPlayers={resultPlayers} />}    
             </div>    
+            </div>
             </div>
             </TabPanel>
       </Tabs>

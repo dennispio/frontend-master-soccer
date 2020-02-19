@@ -9,13 +9,13 @@ import Loading from 'src/components/loading/Loading';
 const Admin = ():JSX.Element => {
 
   const [agents, setAgentData] = React.useState({agentList: [], taskHistorie: [{agent: '', time: ''}]});
-  const [caseStatus, setCaseStatus] = React.useState({caseAdded: '', caseSize: ''})
+  const [caseStatus, setCaseStatus] = React.useState({caseAdded: '0', caseSize: '0'})
   const [message, setMessage] = React.useState('')
   const [isLoading, setLoading] = React.useState(true)
   const [isLoadingAddedCases, setLoadingAddedCases] = React.useState(false)
 
   React.useEffect(() : void  =>  {
-    crawlAgentData();
+    caseInfosData();
   },[]);
 
   const crawlAgentData = () : void => {
@@ -54,7 +54,7 @@ const Admin = ():JSX.Element => {
     axios.get(`http://localhost:8080/scrap`).then(res => {
       console.log(res.data)
       if(!res.data.dataStorage.statusMessage.wasSuccesfull) {
-        setMessage('Die Datenbank wird jetzt mit Fällen befüllt. Habe bitte eine halbe minute Geduld')
+        setMessage('Die Datenbank wird jetzt mit Fällen befüllt.')
         setTimeout(() => {
           setMessage('Die Datenbank wurde erfolgreich mit Fälle befüllt')
         }, 30000)
@@ -93,9 +93,9 @@ const Admin = ():JSX.Element => {
           </div>
           <div>
             <h1>Informationen:</h1>
-            {isLoading ? <div> <h2 className="green">{message}</h2>  <Loading/> </div>: 
+            {isLoading ? <div> <h2 className="">{message}</h2>  <Loading/> </div>: 
             <div>
-              <h2 className="green">Die Datenbank wurde erfolgreich befüllt</h2>
+              <h2 className="">Die Datenbank wurde erfolgreich befüllt</h2>
               <button onClick={caseInfosData}>Listen aktualisieren</button>
             </div>}
             {<h2 className="">Cases Added: {caseStatus.caseAdded}<br /> Cases in casebase: {caseStatus.caseSize}</h2>}
