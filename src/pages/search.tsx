@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 import { Tab,TabList, TabPanel, Tabs } from 'react-tabs';
+import Toggle from '../components/searchInfoBox/toggle'
 import Loading from './../components/loading/Loading';
 import FormIndPlayer from './formIndPlayer';
 import ResultsPlayer from './resultPlayer';
@@ -14,6 +15,11 @@ const Search = ():JSX.Element => {
     const [isLoading, setLoading] = React.useState(true)
     const [resultPlayers, setResultPlayers] = React.useState([]);
     const [resultPlayersInd, setResultPlayersInd] = React.useState([]);
+    const [toggle, setToggle] = React.useState(false);
+
+    const toggleFlip = () => {
+      setToggle(!toggle)
+    }
 
     const handleIndSearch = (e : any) => {
         e.preventDefault();
@@ -98,8 +104,17 @@ const Search = ():JSX.Element => {
         <TabPanel>
           <div>
             <FormIndPlayer onChange = {handleIndSearch}/> 
+            <div>
+                <div className="btn" onClick={toggleFlip}>
+                  <button>LEGENDE</button>
+                </div>
+                      {toggle ? 
+                      <Toggle toggle={toggleFlip} message = "Finde eine passende Alternative für einen Spieler"/>
+
+                      : null}
+                </div>  
             {isLoading ? <Loading />: 
-      <ResultsPlayer resultPlayers={resultPlayersInd} />}
+            <ResultsPlayer resultPlayers={resultPlayersInd} />}
           </div>
         </TabPanel>
         <TabPanel>
@@ -107,7 +122,8 @@ const Search = ():JSX.Element => {
           <div>
             <h1>Spieleraustausch</h1>
             <form onSubmit={handlePlayerSearch}>
-              <div style={{marginTop: "10px"}}>Für welchen Spieler suchst du eine alternative?</div>
+              <div style={{marginTop: "10px"}}>Für welchen Spieler suchst du eine alternative?       
+              </div>
               <label>
               <select name="Spielername">
                 <option value="Axel Witsel">Axel Witsel</option>
@@ -154,6 +170,15 @@ const Search = ():JSX.Element => {
             </div>
               <input type="submit" value="Submit" />
             </form>
+            <div>
+                <div className="btn" onClick={toggleFlip}>
+                  <button>LEGENDE</button>
+                </div>
+                      {toggle ? 
+                      <Toggle toggle={toggleFlip} message = "Finde eine passende Alternative für einen Spieler"/>
+
+                      : null}
+                </div>  
             <div>
               {isLoading ? <Loading />: 
                 <ResultsPlayer resultPlayers={resultPlayers} />}    

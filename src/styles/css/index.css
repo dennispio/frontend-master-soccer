@@ -31,13 +31,6 @@
   }
 }
 
-.pt {
-  margin-top: 15px;
-}
-.pr {
-  margin-right: 15px;
-}
-
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -280,10 +273,16 @@ label {
   cursor: pointer;
 }
 
+.pr {
+  margin-right: 20px;
+}
+
+.pt {
+  margin-top: 15px;
+}
+
 .padding {
-  margin-top: 4em;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
+  margin: 2em;
 }
 
 .green {
