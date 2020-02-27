@@ -99,7 +99,7 @@ const ResultPlayer = ({resultPlayers} : IApiResults):JSX.Element => {
               </tr>     
               <tr>
                 <th>Kicker Note diese Saison</th>
-                {resultPlayers[0].overallBewertung > result.overallBewertung ?
+                {resultPlayers[0].overallBewertung < result.overallBewertung ?
                  <td className="red">{result.overallBewertung}</td> : <td className="green">{result.overallBewertung}</td>}
               </tr> 
               <tr>
