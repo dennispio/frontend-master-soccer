@@ -13,7 +13,6 @@ const Toggle = ({toggle,message} :IToggleProps ) : JSX.Element => {
   <div>
        <div className="modal">
             <div className="modal_content">
-            <span className="close" onClick={handleClick}>&times;</span>
             <p>Das ist die Infobox für die Spielersuche</p>
             <p>Spieler Position - Die Spieler Position gibt an, welcher Position dein Angreifer entsprechen soll</p>
             <p>Großchancen: 0-3</p>

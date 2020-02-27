@@ -43,19 +43,25 @@ interface IApiResult {
 
 const ResultPlayer = ({resultPlayers} : IApiResults):JSX.Element => {
   
+  const [player,setPlayer] = React.useState(false);
+
   React.useEffect(() => {
     // Update the document title using the browser API
-    console.log(resultPlayers[0])
   });
+
+  const playerToggle = () => {
+    setPlayer(!player);
+  }
 
   return(
     <div>
+      <button onClick={playerToggle}>PlayerShow</button>
       <h2 >Resultate</h2>
       <div className="flex">
       {resultPlayers.map((result, key): JSX.Element => {
           return(
-            <div className="padding" key={key}>
-            <table className="soccertable">
+            <div className="padding flex-col" key={key}>
+            <table className="soccertable pr">
             <tbody>
             <tr>Allgemeine Daten</tr>
               <tr>
@@ -218,7 +224,144 @@ const ResultPlayer = ({resultPlayers} : IApiResults):JSX.Element => {
                  <td className="red">{result.overallLuftzweikampf}</td> : <td className="green">{result.overallLuftzweikampf}</td>}
               </tr>       
             </tbody>
-          </table>    
+          </table>   
+          { player===false? <div/> :
+          <table className="soccertable" >
+            <tbody>
+            <tr>Allgemeine Daten</tr>
+              <tr>
+                <th>Rangliste</th>
+                <td>#{1}</td>
+              </tr>  
+              <tr>
+                <th>Ähnlichkeit</th>
+                <td>{resultPlayers[0].similarity}</td>
+              </tr>  
+                <tr>
+                <th>Name</th>
+                <td>{resultPlayers[0].name}</td>
+                </tr>   
+                <tr>
+                <th>Alter</th>
+                 <td className="green">{resultPlayers[0].alter}</td>
+              </tr>  
+              <tr>
+                <th>Marktwert</th>
+                <td className="green">{resultPlayers[0].transfermarktwert}</td>
+              </tr> 
+              <tr>
+                <th>Minuten</th>
+                <td className="green">{resultPlayers[0].overallMinPlayed}</td>
+              </tr> 
+
+              <tr>
+                <th>Einsatzquote</th>
+                 <td className="green">{resultPlayers[0].overallEinsatzquote}</td>
+              </tr>     
+              <tr>
+                <th>Kicker Note diese Saison</th>
+                 <td className="green">{resultPlayers[0].overallBewertung}</td>
+              </tr> 
+              <tr>
+                <th>Position</th>
+                <td className="green">{resultPlayers[0].position}</td>
+              </tr>  
+                <tr>Offensive Werte</tr>
+                <tr>
+                <th>Tore</th>
+                <td className="green">{resultPlayers[0].overallGoals}</td>
+              </tr>    
+              <tr>
+                <th>Torschüsse</th>
+                <td className="green">{resultPlayers[0].overallTorschuesse}</td>
+              </tr> 
+              <tr>
+                <th>SH90 (Schüsse nach 90 Minuten)</th>
+                <td className="green">{resultPlayers[0].overallSHNeun}</td>
+                </tr> 
+                <tr>
+                <th>xG (Expected Goals)</th>
+                <td className="green">{resultPlayers[0].overallxG}</td>
+              </tr>   
+              <tr>
+                <th>xG90 (Exprected Goals after 90 Minutes)</th>
+                <td className="green">{resultPlayers[0].overallxGNEUN}</td>
+              </tr>  
+              <tr>
+                <th>Schussgenauigkeit</th>
+                <td className="green">{resultPlayers[0].overallSchussgenauigkeit}</td>
+              </tr> 
+                 <tr>
+                <th>Vorlagen</th>
+                <td className="green">{resultPlayers[0].overallAssists}</td>
+              </tr>   
+              <tr>
+                <th>Vorlagen für Torschüsse</th>
+                <td className="green">{resultPlayers[0].overallTorschussVorlagen}</td>
+              </tr> 
+              <tr>
+                <th>KP90 (Pässe die zu einem Torschuss führten)</th>
+                <td className="green">{resultPlayers[0].overallKPNEUN}</td>
+              </tr>     
+                <tr>
+                <th>xA (Schlüsselpässe für expected Goals)</th>
+                <td className="green">{resultPlayers[0].overallxA}</td>
+              </tr> 
+              <tr>
+                <th>xA90 (Schlüsselpässe für expected Goals nach 90 Minuten)</th>
+                <td className="green">{resultPlayers[0].overallxANEUN}</td>
+              </tr>   
+              <tr>
+                <th>Kreierte Großchancen</th>
+                <td className="green">{resultPlayers[0].overallkreierteGrosschancen}</td>
+              </tr> 
+              <tr>
+                <th>erfolgreiche Dribblings</th>
+                <td className="green">{resultPlayers[0].overallDribblings}</td>
+              </tr>   
+              <tr>Defensive Aktionen</tr>
+              <tr>
+                <th>Erfolgreich abgefangene Bälle</th>
+                <td className="green">{resultPlayers[0].overallAbgefangeneBaelle}</td>
+              </tr>   
+              <tr>
+                <th>Geklärte Bälle</th>
+                <td className="green">{resultPlayers[0].overallGeklaerteBaelle}</td>
+              </tr>    
+              <tr>
+                <th>Begangene Fouls</th>
+                <td className="green">{resultPlayers[0].overallFouls}</td>
+              </tr>   
+              <tr>
+                <th>Geblockte Schüsse</th>
+                <td className="green">{resultPlayers[0].overallBlockSchuss}</td>
+              </tr>  
+              <tr>
+                <th>Ballverluste</th>
+                <td className="green">{resultPlayers[0].overallBallverlust}</td>
+              </tr>   
+              <tr>
+                <th>Ball Eroberungen</th>
+                <td className="green">{resultPlayers[0].overallBallEroberungen}</td>
+              </tr>   
+              <tr>
+                <th>Passquote</th>
+                <td className="green">{resultPlayers[0].overallPassquote}</td>
+              </tr> 
+              <tr>
+                <th>erfolgreiche Tacklings</th>
+                <td className="green">{resultPlayers[0].overallTacklingQuote}</td>
+              </tr> 
+              <tr>
+                <th>Zweikampfquote</th>
+                <td className="green">{resultPlayers[0].overallZweikampfquote}</td>
+              </tr> 
+              <tr>
+                <th>Luftzweikampf</th>
+                <td className="green">{resultPlayers[0].overallLuftzweikampf}</td>
+              </tr>       
+            </tbody>
+          </table> }    
           </div>  
           )
         })}

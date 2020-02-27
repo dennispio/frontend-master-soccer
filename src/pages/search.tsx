@@ -149,15 +149,15 @@ const Search = ():JSX.Element => {
           </label>
           <div className="pt">
           <div>Welche Art Spielertyp suchst du als alternative?</div>
-              <label className="padding">
+              <label className="pr">
                 <input type="radio" value="identisch" name="spielertyp" defaultChecked={true}/>
                 Identisch
               </label>
-              <label className="padding">
+              <label className="pr">
                 <input type="radio" value="defensiv" name="spielertyp"/>
                 Defensiv
               </label>
-              <label className="padding">
+              <label className="pr">
                 <input type="radio" value="offensiv" name="spielertyp"/>
                 Offensiv
               </label>  
